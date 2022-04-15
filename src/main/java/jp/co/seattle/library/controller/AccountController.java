@@ -52,8 +52,8 @@ public class AccountController {
 		UserInfo userInfo = new UserInfo();
 		userInfo.setEmail(email);
 		// TODO バリデーションチェック、パスワード一致チェック実装
-//半角英数字8文字以上であってるか記されている
-		if (password.length() >= 8 && password.matches("^[A-Za-z0-9]+$")) {
+        //半角英数字8文字以上であってるか記されている
+		if (password.length() >= 8 && password.matches("^[0-9a-zA-Z]+$")) {
 			
 			if (password.equals(passwordForCheck)) {
 				
