@@ -28,7 +28,7 @@ public class UsersService {
 	public void registUser(UserInfo userInfo) {
 
 		// SQL生成
-		String sql = "INSERT INTO users (email, password,reg_date,upd_date) VALUES ('" + userInfo.getEmail() + "','" 
+		String sql = "INSERT INTO users (email, password,reg_date,upd_date) VALUES ('" + userInfo.getEmail() + "','"
 				+ "',now(),now()" + ")";
 
 		jdbcTemplate.update(sql);
@@ -51,7 +51,7 @@ public class UsersService {
 			return selectedUserInfo;
 		} catch (Exception e) {
 			// 例外発生時に実行される文
-            return null;
+			return null;
 		}
 
 	}
