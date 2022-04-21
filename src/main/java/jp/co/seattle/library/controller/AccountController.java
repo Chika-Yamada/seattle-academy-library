@@ -46,24 +46,24 @@ public class AccountController {
 	public String createAccount(Locale locale, @RequestParam("email") String email,
 			@RequestParam("password") String password, @RequestParam("passwordForCheck") String passwordForCheck,
 			Model model) {
-		
+
 		logger.info("Welcome createAccount! The client locale is {}.", locale);
-		
+
 		UserInfo userInfo = new UserInfo();
 		userInfo.setEmail(email);
 		// TODO バリデーションチェック、パスワード一致チェック実装
-        //半角英数字8文字以上であってるか記されている
+		// 半角英数字8文字以上であってるか記されている
 		if (password.length() >= 8 && password.matches("^[0-9a-zA-Z]+$")) {
-			
+
 			if (password.equals(passwordForCheck)) {
-				
+
 				userInfo.setPassword(password);
 				usersService.registUser(userInfo);
-				
+
 				return "login";
-				
+
 			} else {
-				
+
 				model.addAttribute("errorPassword", "パスワードが一致していません。");
 				return "createAccount";
 			}
