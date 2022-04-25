@@ -19,28 +19,26 @@ import jp.co.seattle.library.service.BooksService;
  */
 @Controller
 public class DetailsController {
-    final static Logger logger = LoggerFactory.getLogger(BooksService.class);
+	final static Logger logger = LoggerFactory.getLogger(BooksService.class);
 
-    @Autowired
-    private BooksService bookdService;
+	@Autowired
+	private BooksService bookdService;
 
-    /**
-     * 詳細画面に遷移する
-     * @param locale
-     * @param bookId
-     * @param model
-     * @return
-     */
-    @Transactional
-    @RequestMapping(value = "/details", method = RequestMethod.POST)
-    public String detailsBook(Locale locale,
-            @RequestParam("bookId") Integer bookId,
-            Model model) {
-        // デバッグ用ログ
-        logger.info("Welcome detailsControler.java! The client locale is {}.", locale);
+	/**
+	 * 詳細画面に遷移する
+	 * 
+	 * @param locale
+	 * @param bookId
+	 * @param model
+	 * @return
+	 */
+	@Transactional
+	@RequestMapping(value = "/details", method = RequestMethod.POST)
+	public String detailsBook(Locale locale, @RequestParam("bookId") Integer bookId, Model model) {
+		// デバッグ用ログ
+		logger.info("Welcome detailsControler.java! The client locale is {}.", locale);
+		model.addAttribute("bookDetailsInfo", bookdService.getBookInfo(bookId));
 
-        model.addAttribute("bookDetailsInfo", bookdService.getBookInfo(bookId));
-
-        return "details";
-    }
+		return "details";
+	}
 }

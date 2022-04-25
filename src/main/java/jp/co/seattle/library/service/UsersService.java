@@ -29,7 +29,7 @@ public class UsersService {
 
 		// SQL生成
 		String sql = "INSERT INTO users (email, password,reg_date,upd_date) VALUES ('" + userInfo.getEmail() + "','"
-				+ "',now(),now()" + ")";
+				+ userInfo.getPassword() + "',now(),now()" + ")";
 
 		jdbcTemplate.update(sql);
 	}
