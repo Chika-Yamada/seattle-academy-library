@@ -79,10 +79,15 @@ public class BooksService {
 		String sql = "DELETE FROM books WHERE id = " + bookId + ";";
 		jdbcTemplate.update(sql);
 	}
+    
 
+	/**
+	 * 最新の書籍IDを取得する
+	 *
+	 * @return 最新の書籍ID
+	 */
 	public int getMaxId() {
 
-		// JSPに渡すデータを設定する
 		String sql = "SELECT MAX(id) FROM books";
 
 		int bookId = jdbcTemplate.queryForObject(sql, Integer.class);
