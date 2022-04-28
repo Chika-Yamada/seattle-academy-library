@@ -77,10 +77,10 @@
             <form method="post" action="returnBook">
                 <button type="submit" value="${bookDetailsInfo.bookId}" name="bookId" class="btn_returnBook">返す</button>
             </form>
-            <form method="post" action="editBook">
+            <form method="post" action="<%=request.getContextPath()%>/edit">
                 <button type="submit" value="${bookDetailsInfo.bookId}" name="bookId" class="btn_editBook">編集</button>
             </form>
-            <form method="post" action="deleteBook">
+            <form method="post" action=deleteBook>
                 <button type="submit" value="${bookDetailsInfo.bookId}" name="bookId" class="btn_deleteBook">削除</button>
             </form>
         </div>
